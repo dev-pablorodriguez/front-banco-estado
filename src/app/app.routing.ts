@@ -3,33 +3,37 @@ import { CommonModule, } from '@angular/common';
 import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
+import { TypographyComponent } from './home/typography/typography.component';
+import { UserProfileComponent } from './home/user-profile/user-profile.component';
 
 const routes: Routes =[
   {
     path: 'login',
     component: LoginComponent,
-    pathMatch: 'full',
   },
   {
     path: '',
-    redirectTo: 'dashboard',
-    pathMatch: 'full',
-  },
-  {
-    path: '',
-    component: AdminLayoutComponent,
+    component: HomeComponent,
     children: [
       {
         path: '',
-        loadChildren: () => import('./layouts/admin-layout/admin-layout.module').then(x=>x.AdminLayoutModule)
-      }
+        redirectTo: 'transferencias',
+      },
+      {
+        path: 'transferencias',
+        component: UserProfileComponent,
+      },
+      {
+        path: 'destinatarios',
+        component: TypographyComponent,
+      },
     ]
   },
   {
     path: '**',
-    redirectTo: 'dashboard'
+    redirectTo: ''
   }
 ];
 
