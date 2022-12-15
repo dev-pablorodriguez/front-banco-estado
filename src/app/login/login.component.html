@@ -1,0 +1,42 @@
+<div class="panel-header panel-header-md">
+</div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4" style="margin-top: -50px">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="title">Iniciar Sesión</h5>
+        </div>
+        <div class="card-body">
+          <form (submit)="iniciarSesion($event)">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label>Nombre de Usuario</label>
+                  <input type="text" class="form-control" placeholder="Nombre de Usuario">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label>Contraseña</label>
+                  <input type="text" class="form-control" placeholder="Constraseña">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <input type="submit" class="btn btn-info btn-block" value="Iniciar Sesión" />
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+</div>
