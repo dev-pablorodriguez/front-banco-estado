@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { AuthService } from '../../services/auth.service';
 
 
 @Component({
@@ -7,8 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() {}
-
+  constructor(private authService: AuthService, private router: Router, private toastr: ToastrService) {}
+  
   ngOnInit() {
+    if(!this.authService.isAuthenticated()){
+      this.router.navigate(['login']);
+    }
   }
 }
