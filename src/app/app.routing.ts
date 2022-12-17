@@ -5,8 +5,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { LoginComponent } from './views/login/login.component';
 import { HomeComponent } from './views/home/home.component';
-import { TypographyComponent } from './views/home/typography/typography.component';
-import { UserProfileComponent } from './views/home/user-profile/user-profile.component';
+import { TransferenciasComponent } from './views/home/transferencias/transferencias.component';
+import { DestinatariosComponent } from './views/home/destinatarios/destinatarios.component';
 
 const routes: Routes =[
   {
@@ -23,11 +23,11 @@ const routes: Routes =[
       },
       {
         path: 'transferencias',
-        component: UserProfileComponent,
+        component: TransferenciasComponent,
       },
       {
         path: 'destinatarios',
-        component: TypographyComponent,
+        component: DestinatariosComponent,
       },
     ]
   },

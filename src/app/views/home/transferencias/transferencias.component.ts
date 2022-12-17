@@ -4,10 +4,10 @@ import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../../../services/auth.service';
 
 @Component({
-  selector: 'app-typography',
-  templateUrl: './typography.component.html'
+  selector: 'app-transferencias',
+  templateUrl: './transferencias.component.html'
 })
-export class TypographyComponent implements OnInit {
+export class TransferenciasComponent implements OnInit {
 
   constructor(private authService: AuthService, private router: Router, private toastr: ToastrService) {}
   
