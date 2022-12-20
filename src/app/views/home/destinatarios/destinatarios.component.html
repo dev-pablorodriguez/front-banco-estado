@@ -2,7 +2,7 @@
 </div>
 <div class="main-content">
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-9">
       <div class="card">
         <div class="card-header">
           <h5 class="title">Destinatarios</h5>
@@ -16,6 +16,9 @@
                 </th>
                 <th>
                   Nombre
+                </th>
+                <th>
+                  Tipo
                 </th>
                 <th>
                   Correo
@@ -35,12 +38,13 @@
               </thead>
               <tbody>
                 <tr *ngFor="let item of destinatarios">
-                  <td>{{item.rut}}</td>
-                  <td>{{item.name}}</td>
-                  <td>{{item.email}}</td>
-                  <td>{{item.phone}}</td>
-                  <td>{{item.accountNumber}}</td>
-                  <td>{{item.bank.name}}</td>
+                  <td>{{ item.rut }}</td>
+                  <td>{{ item.name }}</td>
+                  <td class="text-success font-weight-bold">{{ getTipoDestinatario(item.rut) }}</td>
+                  <td>{{ item.email }}</td>
+                  <td>{{ item.phone }}</td>
+                  <td>{{ item.accountNumber }}</td>
+                  <td>{{ item.bank.name }}</td>
                   <td>
                     <button (click)="editarDestinatarioGrilla(item._id)" title="Editar" class="btn btn-warning btn-sm mx-1">
                       <i class="now-ui-icons design_scissors"></i>
@@ -56,7 +60,7 @@
         </div>
       </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
       <div class="card">
         <div class="card-header">
           <h5 class="title">{{ isEditMode ? 'Editar Destinatario' : 'Nuevo Destinatario' }}</h5>

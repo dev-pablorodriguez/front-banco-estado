@@ -161,6 +161,12 @@ export class DestinatariosComponent implements OnInit {
       });
   }
 
+  getTipoDestinatario = (rut: string): string => {
+    const rutWithoutDv = rut.slice(0, -2);//remove - and DV
+
+    return parseInt(rutWithoutDv) > 50000000 ? 'Empresa' : 'Persona';
+  }
+
   cancelarEdicion(){
     this.salirModoEdicion();
     this.limpiarFormulario();
