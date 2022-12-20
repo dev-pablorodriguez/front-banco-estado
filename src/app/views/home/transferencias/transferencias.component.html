@@ -51,9 +51,98 @@
     <div class="col-md-4">
       <div class="card">
         <div class="card-header">
-          <h5 class="title">Seleccionar Destinatario</h5>
+          <h5 class="title">Nueva Transferencia</h5>
         </div>
         <div class="card-body">
+          <form (submit)="crearTransferencia()">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label>Destinatario</label>
+                  <select class="form-control" [(ngModel)]="selectedDestinatario" (change)="onDestinatariosChange($event)">
+                    <option *ngFor="let item of destinatarios" [value]="item._id">{{ item.rut }} | {{ item.name }}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="row mt-2">
+              <div class="col-md-12">
+                <div class="row form-group">
+                  <div class="col-md-4 ">
+                    <p class="font-weight-bold">RUT</p>
+                  </div>
+                  <div class="col-md-8">
+                    <p>{{ rut }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="row form-group">
+                  <div class="col-md-4 ">
+                    <p class="font-weight-bold">Nombre</p>
+                  </div>
+                  <div class="col-md-8">
+                    <p>{{ name }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="row form-group">
+                  <div class="col-md-4 ">
+                    <p class="font-weight-bold">Email</p>
+                  </div>
+                  <div class="col-md-8">
+                    <p>{{ email }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="row form-group">
+                  <div class="col-md-4 ">
+                    <p class="font-weight-bold">Cuenta</p>
+                  </div>
+                  <div class="col-md-8">
+                    <p>{{ accountNumber }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="row form-group">
+                  <div class="col-md-4 ">
+                    <p class="font-weight-bold">Banco</p>
+                  </div>
+                  <div class="col-md-8">
+                    <p>{{ bank }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row mb-2">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label>Monto</label>
+                  <input [(ngModel)]="amount" type="number" class="form-control">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <input type="submit" class="btn btn-info btn-block" value="Realizar Transferencia">
+              </div>
+            </div>
+          </form>
         </div>
       </div>
     </div>

@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../../../services/auth.service';
 import { DestinatariosService } from '../../../services/destinatarios.service';
 import { BanksService } from '../../../services/banks.service';
+import { getErrorsMessage } from '../../../../helpers'
 
 @Component({
   selector: 'app-destinatarios',
@@ -103,7 +104,7 @@ export class DestinatariosComponent implements OnInit {
       }, ({ error }) => {
         console.log(error);
 
-        this.toastr.info(this.getErrorsMessage(error.errors), 'Error', {
+        this.toastr.info(getErrorsMessage(error.errors), 'Error', {
           timeOut: 8000,
           closeButton: true,
           enableHtml: true,
@@ -150,7 +151,7 @@ export class DestinatariosComponent implements OnInit {
       }, ({ error }) => {
         console.log(error);
 
-        this.toastr.info(this.getErrorsMessage(error.errors), 'Error', {
+        this.toastr.info(getErrorsMessage(error.errors), 'Error', {
           timeOut: 8000,
           closeButton: true,
           enableHtml: true,
@@ -209,14 +210,4 @@ export class DestinatariosComponent implements OnInit {
     this.accountNumber = '';
     this.selectedBank = '';
   }
-
-  getErrorsMessage(errorsObject){
-    const messagesArr = [];
-    const keys = Object.keys(errorsObject);
-
-    keys.forEach( prop =>  messagesArr.push(errorsObject[prop].msg));
-
-    return messagesArr.join(' ');
-  }
-
 }
