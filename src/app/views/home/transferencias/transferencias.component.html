@@ -2,7 +2,7 @@
 </div>
 <div class="main-content">
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-9">
       <div class="card">
         <div class="card-header">
           <h5 class="title">Transferencias</h5>
@@ -27,7 +27,7 @@
                     </th>
                   </thead>
                   <tbody>
-                    <tr *ngFor="let item of transferencias">
+                    <tr *ngFor="let item of transferencias" [class]="isPossibleFraud(item) ? 'bg-danger text-white' : '' ">
                       <td>{{ item.created | date }}</td>
                       <td>{{ item.destinatario.name }}</td>
                       <td>{{ item.destinatario.bank.name }}</td>
@@ -41,7 +41,7 @@
         </div>
       </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
       <div class="card">
         <div class="card-header">
           <h5 class="title">Nueva Transferencia</h5>

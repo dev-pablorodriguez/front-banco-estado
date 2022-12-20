@@ -150,4 +150,15 @@ export class TransferenciasComponent implements OnInit {
     }
   }
 
+  isPossibleFraud = (tef):boolean => {
+    //Get the transfers that have been made to that recipient and are over 100K
+    const transfersToSameDestinatario = this.transferencias.filter(
+      item =>
+        item.destinatario._id === tef.destinatario._id &&
+        item.amount > 100000
+      )
+      
+      return transfersToSameDestinatario.length >= 2 && tef.amount > 100000
+  }
+
 }
